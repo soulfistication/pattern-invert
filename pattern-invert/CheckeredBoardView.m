@@ -27,42 +27,38 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    NSLog(@"%@", @"initWithCoder not implemented");
+    exit(0);
+}
 
-    if (self) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            [self toggleCheckeredView];
-        }];
+- (void)awakeFromNib {
+    [super awakeFromNib];
 
-        self.checkeredSubViews = @[].mutableCopy;
+    self.checkeredSubViews = @[].mutableCopy;
 
-        for (NSInteger i = 0; i < NUM_ROWS; i++) {
-            for (NSInteger j = 0; j < NUM_COLUMNS; j++) {
-                CGFloat x = 0;
-                CGFloat y = 0;
-                BOOL filled = YES;
-                CheckeredView *checkeredView = [[CheckeredView alloc] initWithFrame:CGRectMake(x, y, WIDTH, HEIGHT)];
-                checkeredView.translatesAutoresizingMaskIntoConstraints = NO;
-                checkeredView.filled = filled;
-                [self.checkeredSubViews addObject:checkeredView];
-                [self addSubview:checkeredView];
-            }
+    for (NSInteger i = 0; i < NUM_ROWS; i++) {
+        for (NSInteger j = 0; j < NUM_COLUMNS; j++) {
+            CGFloat x = 0;
+            CGFloat y = 0;
+            BOOL filled = YES;
+            CheckeredView *checkeredView = [[CheckeredView alloc] initWithFrame:CGRectMake(x, y, WIDTH, HEIGHT)];
+            checkeredView.translatesAutoresizingMaskIntoConstraints = NO;
+            checkeredView.filled = filled;
+            [self.checkeredSubViews addObject:checkeredView];
+            [self addSubview:checkeredView];
         }
     }
 
-    return self;
-}
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [self toggleCheckeredView];
+    }];
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    NSLog(@"%@", @"initWithCoder not implemented");
-    exit(0);
 }
 
 - (void)toggleCheckeredView {
     NSLog(@"%@", @"Toggle Color");
     for (CheckeredView * checkeredView in self.checkeredSubViews) {
         [checkeredView toggleColor];
-        [checkeredView setNeedsLayout];
     }
 }
 

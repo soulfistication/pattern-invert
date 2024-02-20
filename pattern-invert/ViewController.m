@@ -6,10 +6,11 @@
 //
 
 #import "ViewController.h"
+#import "CheckeredBoardView.h"
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *checkeredBoardView;
+@property (weak, nonatomic) IBOutlet CheckeredBoardView *checkeredBoardView;
 
 @end
 

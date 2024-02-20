@@ -30,16 +30,16 @@
     [super awakeFromNib];
 }
 
-#pragma mark - Properties
-
-- (void)setFilled:(BOOL)filled {
-    filled ? self.backgroundColor = [UIColor blackColor] : [UIColor whiteColor];
-}
-
 #pragma mark - Helpers
 
 - (void)toggleColor {
-    self.filled = !self.isFilled;
+    BOOL isFilled = self.isFilled;
+    if (isFilled) {
+        self.backgroundColor = [UIColor whiteColor];
+    } else {
+        self.backgroundColor = [UIColor blackColor];
+    }
+    self.filled = !isFilled;
 }
 
 @end
