@@ -1,0 +1,6 @@
+framework module Pods_pattern_invert {
+  umbrella header "Pods-pattern-invert-umbrella.h"
+
+  export *
+  module * { export * }
+}
