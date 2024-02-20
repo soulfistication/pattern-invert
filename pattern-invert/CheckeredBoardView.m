@@ -14,6 +14,8 @@
 #define WIDTH 100
 #define HEIGHT 100
 
+#define TIME_INTERVAL 0.5
+
 @interface CheckeredBoardView ()
 
 @property (nonatomic, strong) NSTimer *timer;
@@ -49,7 +51,7 @@
         }
     }
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self toggleCheckeredView];
     }];
 
