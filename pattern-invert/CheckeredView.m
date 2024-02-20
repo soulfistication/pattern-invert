@@ -33,13 +33,8 @@
 #pragma mark - Helpers
 
 - (void)toggleColor {
-    BOOL isFilled = self.isFilled;
-    if (isFilled) {
-        self.backgroundColor = [UIColor whiteColor];
-    } else {
-        self.backgroundColor = [UIColor blackColor];
-    }
-    self.filled = !isFilled;
+    self.isFilled ? (self.backgroundColor = [UIColor whiteColor]) : (self.backgroundColor = [UIColor blackColor]);
+    self.filled = !self.isFilled;
 }
 
 @end
