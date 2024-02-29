@@ -23,6 +23,7 @@
     if (self) {
         self.backgroundColor = [UIColor blackColor];
     }
+
     return self;
 }
 

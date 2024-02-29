@@ -10,7 +10,6 @@
 
 #define NUM_ROWS 16
 #define NUM_COLUMNS 16
-
 #define TIME_INTERVAL 0.5
 
 @interface CheckeredBoardView ()
@@ -42,7 +41,6 @@
     self.checkeredSubViews = @[].mutableCopy;
 
     for (NSInteger i = 0; i < NUM_ROWS; i++) {
-
         for (NSInteger j = 0; j < NUM_COLUMNS; j++) {
             CheckeredView *checkeredView = [[CheckeredView alloc] initWithFrame:CGRectMake(x, y, width, height)];
             checkeredView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -55,7 +53,9 @@
         x = 0;
     }
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL repeats:YES block:^(NSTimer * _Nonnull timer) {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL 
+                                                 repeats:YES
+                                                   block:^(NSTimer * _Nonnull timer) {
         [self toggleCheckeredView];
     }];
 
