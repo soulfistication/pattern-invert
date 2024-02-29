@@ -7,15 +7,21 @@
 
 #import "CheckeredBoardView.h"
 #import "CheckeredView.h"
+#import "NetworkClient.h"
 
 #define NUM_ROWS 16
 #define NUM_COLUMNS 16
-#define TIME_INTERVAL 0.5
+#define TIME_INTERVAL 1.0
+#define NUM_STIMS 180
 
 @interface CheckeredBoardView ()
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableArray<CheckeredView *> *checkeredSubViews;
+
+@property (nonatomic, strong) NetworkClient *client;
+
+@property (nonatomic, assign) uint16_t numStims;
 
 @end
 
@@ -31,6 +37,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+
+    _numStims = NUM_STIMS;
 
     CGFloat width = self.frame.size.width / NUM_COLUMNS;
     CGFloat height = self.frame.size.height / NUM_ROWS;
@@ -53,19 +61,45 @@
         x = 0;
     }
 
+    self.client = [[NetworkClient alloc] init];
+
     self.timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL 
                                                  repeats:YES
                                                    block:^(NSTimer * _Nonnull timer) {
+
+        if (self.numStims == 0) {
+            [self.client disconnect];
+            [self turnOffDisplay];
+            //[self killApp];
+        }
+
         [self toggleCheckeredView];
+        [self sendSocket];
+
+        self.numStims--;
     }];
 
 }
 
 - (void)toggleCheckeredView {
-    NSLog(@"%@", @"Toggle Color");
+    //NSLog(@"%@", @"Toggle Color");
     for (CheckeredView * checkeredView in self.checkeredSubViews) {
         [checkeredView toggleColor];
     }
 }
 
+- (void)sendSocket {
+    [self.client send];
+}
+
+- (void)turnOffDisplay {
+    UIView *blackView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 4000.0, 4000.0)];
+    blackView.backgroundColor = [UIColor blackColor];
+    blackView.layer.opacity = 1.0;
+    [self.superview insertSubview:blackView atIndex:2];
+}
+
+- (void)killApp {
+    exit(0);
+}
 @end

@@ -16,6 +16,7 @@
 		24C634392B85348100E08B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C634382B85348100E08B67 /* main.m */; };
 		24C634412B8552D100E08B67 /* CheckeredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C634402B8552D100E08B67 /* CheckeredView.m */; };
 		24C634442B85537100E08B67 /* CheckeredBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C634432B85537100E08B67 /* CheckeredBoardView.m */; };
+		24EA027D2B90210800EEDD39 /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EA027C2B90210800EEDD39 /* NetworkClient.m */; };
 		7FC0B88618C40DFB13398527 /* Pods_pattern_invert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C04BE39EA24F5A5E638443 /* Pods_pattern_invert.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		24C634402B8552D100E08B67 /* CheckeredView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckeredView.m; sourceTree = "<group>"; };
 		24C634422B85537100E08B67 /* CheckeredBoardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckeredBoardView.h; sourceTree = "<group>"; };
 		24C634432B85537100E08B67 /* CheckeredBoardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckeredBoardView.m; sourceTree = "<group>"; };
+		24EA027B2B90210800EEDD39 /* NetworkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkClient.h; sourceTree = "<group>"; };
+		24EA027C2B90210800EEDD39 /* NetworkClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkClient.m; sourceTree = "<group>"; };
 		7A3BF063D753B56A8F9E1E8C /* Pods-pattern-invert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pattern-invert.release.xcconfig"; path = "Target Support Files/Pods-pattern-invert/Pods-pattern-invert.release.xcconfig"; sourceTree = "<group>"; };
 		C3C04BE39EA24F5A5E638443 /* Pods_pattern_invert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pattern_invert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C51BA13DFA39A8E4B7C63B /* Pods-pattern-invert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pattern-invert.debug.xcconfig"; path = "Target Support Files/Pods-pattern-invert/Pods-pattern-invert.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				24C634432B85537100E08B67 /* CheckeredBoardView.m */,
 				24C6343F2B8552D100E08B67 /* CheckeredView.h */,
 				24C634402B8552D100E08B67 /* CheckeredView.m */,
+				24EA027B2B90210800EEDD39 /* NetworkClient.h */,
+				24EA027C2B90210800EEDD39 /* NetworkClient.m */,
 				24C6342F2B85348000E08B67 /* Main.storyboard */,
 				24C634322B85348100E08B67 /* Assets.xcassets */,
 				24C634342B85348100E08B67 /* LaunchScreen.storyboard */,
@@ -228,6 +233,7 @@
 				24C634282B85348000E08B67 /* AppDelegate.m in Sources */,
 				24C634442B85537100E08B67 /* CheckeredBoardView.m in Sources */,
 				24C634392B85348100E08B67 /* main.m in Sources */,
+				24EA027D2B90210800EEDD39 /* NetworkClient.m in Sources */,
 				24C6342B2B85348000E08B67 /* SceneDelegate.m in Sources */,
 				24C634412B8552D100E08B67 /* CheckeredView.m in Sources */,
 			);
