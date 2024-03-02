@@ -19,7 +19,8 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableArray<CheckeredView *> *checkeredSubViews;
 
-@property (nonatomic, strong) NetworkClient *client;
+@property (nonatomic, strong) NetworkClient *client1;
+@property (nonatomic, strong) NetworkClient *client2;
 
 @property (nonatomic, assign) uint16_t numStims;
 
@@ -61,16 +62,15 @@
         x = 0;
     }
 
-    self.client = [[NetworkClient alloc] init];
+    self.client1 = [[NetworkClient alloc] initWithIPAddress:@"192.168.1.196"];
+    self.client2 = [[NetworkClient alloc] initWithIPAddress:@"192.168.1.199"];
 
     self.timer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL 
                                                  repeats:YES
                                                    block:^(NSTimer * _Nonnull timer) {
 
         if (self.numStims == 0) {
-            [self.client disconnect];
             [self turnOffDisplay];
-            //[self killApp];
         }
 
         [self toggleCheckeredView];
@@ -102,4 +102,5 @@
 - (void)killApp {
     exit(0);
 }
+
 @end

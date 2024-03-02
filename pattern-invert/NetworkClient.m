@@ -18,14 +18,14 @@
 
 @implementation NetworkClient
 
-- (instancetype)init {
+- (instancetype)initWithIPAddress:(NSString *)address {
 
     NSLog(@"%@", @"init");
 
     self = [super init];
 
     if (self) {
-        _ipAddress = @"192.168.1.195";
+        _ipAddress = address;
         _port = 8002;
 
         _tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self
@@ -47,6 +47,8 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
     NSLog(@"%@", @"Did connect to Host");
+    //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //formatter.timeZone = [NSTimeZone timeZoneWithName:@"America/Mexico_City"];;
     NSDate *date = [NSDate now];
     NSString *timeStamp = [date description];
     [timeStamp stringByAppendingString:@" "];
@@ -73,8 +75,6 @@
 }
 
 - (void)send {
-    //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    //formatter.timeZone = [NSTimeZone timeZoneWithName:@"America/Mexico_City"];;
     NSDate *date = [NSDate now];
     NSString *timeStamp = [date description];
     NSLog(@"Send event - %@", timeStamp);

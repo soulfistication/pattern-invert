@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkClient : NSObject<GCDAsyncSocketDelegate>
 
-- (instancetype)init;
+- (instancetype)initWithIPAddress:(NSString *)address;
 - (void)send;
 - (void)disconnect;
 
