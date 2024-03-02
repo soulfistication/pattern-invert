@@ -25,7 +25,7 @@
     self = [super init];
 
     if (self) {
-        _ipAddress = @"127.0.0.1";
+        _ipAddress = @"192.168.1.195";
         _port = 8002;
 
         _tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self
@@ -54,6 +54,7 @@
     NSMutableData *timeStampData = [[timeStamp dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
     [timeStampData appendData:[GCDAsyncSocket CRLFData]];
     [self.tcpSocket writeData:timeStampData withTimeout:30.0 tag:0];
+    [self.tcpSocket disconnect];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
@@ -83,7 +84,7 @@
 }
 
 - (void)disconnect {
-    [self.tcpSocket disconnect];
+    //[self.tcpSocket disconnect];
 }
 
 @end

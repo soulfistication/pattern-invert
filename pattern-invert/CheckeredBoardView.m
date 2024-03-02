@@ -89,7 +89,7 @@
 }
 
 - (void)sendSocket {
-    [self.client send];
+    // [self.client send];
 }
 
 - (void)turnOffDisplay {
